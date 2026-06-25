@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Support · Stoke — Habit Tracker</title>
+<meta name="description" content="Help and support for Stoke — Habit Tracker. Contact us, browse FAQs, manage your subscription, and troubleshoot common issues." />
+<meta name="theme-color" content="#FF5E00" />
+<meta name="robots" content="index, follow" />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%94%A5%3C/text%3E%3C/svg%3E" />
+<style>
+  :root {
+    --bg: #FBF6F0; --surface: #FFFFFF; --ink: #1A1613; --ink-soft: #5C544D;
+    --accent: #FF5E00; --line: rgba(26,22,19,.10); --maxw: 820px;
+    --font: -apple-system, BlinkMacSystemFont, "SF Pro Text", system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root { --bg: #14110F; --surface: #221D19; --ink: #F5EFE9; --ink-soft: #B8AEA5; --accent: #FF6B10; --line: rgba(245,239,233,.12); }
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { font-family: var(--font); background: var(--bg); color: var(--ink); line-height: 1.7; -webkit-font-smoothing: antialiased; }
+  a { color: var(--accent); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+
+  header.nav { position: sticky; top: 0; z-index: 10; backdrop-filter: saturate(180%) blur(20px); -webkit-backdrop-filter: saturate(180%) blur(20px); background: color-mix(in srgb, var(--bg) 72%, transparent); border-bottom: 1px solid var(--line); }
+  .nav-inner { max-width: var(--maxw); margin: 0 auto; padding: 0 24px; height: 60px; display: flex; align-items: center; justify-content: space-between; }
+  .brand { display: flex; align-items: center; gap: 10px; font-weight: 700; font-size: 18px; color: var(--ink); letter-spacing: -0.02em; }
+  .brand .logo { width: 30px; height: 30px; border-radius: 9px; background: linear-gradient(135deg,#FF8A3D,#FF5E00,#FF2D00); display: grid; place-items: center; font-size: 16px; }
+  .nav-inner .back { font-size: 14px; font-weight: 600; color: var(--ink-soft); }
+
+  main { max-width: var(--maxw); margin: 0 auto; padding: 56px 24px 80px; }
+  .doc-head { margin-bottom: 36px; padding-bottom: 28px; border-bottom: 1px solid var(--line); }
+  .doc-head .kicker { color: var(--accent); font-weight: 700; font-size: 13px; letter-spacing: .05em; text-transform: uppercase; }
+  .doc-head h1 { font-size: clamp(32px, 6vw, 44px); letter-spacing: -0.03em; font-weight: 800; margin: 10px 0 14px; line-height: 1.05; }
+  .doc-head .meta { color: var(--ink-soft); font-size: 14px; }
+
+  section { margin-bottom: 38px; scroll-margin-top: 80px; }
+  h2.sec { font-size: 22px; letter-spacing: -0.02em; font-weight: 700; margin-bottom: 14px; display: flex; align-items: baseline; gap: 10px; }
+  h2.sec .n { color: var(--accent); font-size: 16px; font-weight: 800; }
+  p { color: var(--ink-soft); margin-bottom: 14px; }
+  ul.body { margin: 0 0 16px; padding-left: 22px; color: var(--ink-soft); }
+  ul.body li { margin-bottom: 9px; }
+  strong { color: var(--ink); font-weight: 650; }
+
+  .callout { background: var(--surface); border: 1px solid var(--line); border-left: 3px solid var(--accent); border-radius: 12px; padding: 18px 22px; margin: 18px 0; }
+  .callout p { margin: 0; color: var(--ink-soft); }
+
+  /* Contact cards */
+  .cards { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 4px 0 8px; }
+  @media (max-width: 600px) { .cards { grid-template-columns: 1fr; } }
+  .card { background: var(--surface); border: 1px solid var(--line); border-radius: 16px; padding: 22px 24px; }
+  .card .ico { font-size: 26px; line-height: 1; }
+  .card h3 { font-size: 16px; font-weight: 700; margin: 12px 0 4px; color: var(--ink); }
+  .card p { font-size: 14.5px; margin: 0; }
+  .card a.cta { display: inline-block; margin-top: 10px; font-weight: 650; }
+
+  /* FAQ accordion */
+  details.faq { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 0; margin-bottom: 12px; overflow: hidden; }
+  details.faq > summary { list-style: none; cursor: pointer; padding: 17px 22px; font-weight: 650; color: var(--ink); font-size: 16px; display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+  details.faq > summary::-webkit-details-marker { display: none; }
+  details.faq > summary::after { content: "+"; color: var(--accent); font-weight: 800; font-size: 22px; line-height: 1; transition: transform .2s ease; }
+  details.faq[open] > summary::after { transform: rotate(45deg); }
+  details.faq .ans { padding: 0 22px 18px; }
+  details.faq .ans p { margin: 0 0 10px; }
+  details.faq .ans ul { margin: 0 0 10px; padding-left: 20px; color: var(--ink-soft); }
+  details.faq .ans li { margin-bottom: 7px; }
+
+  .steps { counter-reset: s; list-style: none; padding: 0; }
+  .steps li { counter-increment: s; position: relative; padding-left: 38px; margin-bottom: 12px; color: var(--ink-soft); }
+  .steps li::before { content: counter(s); position: absolute; left: 0; top: -1px; width: 26px; height: 26px; border-radius: 50%; background: var(--accent); color: #fff; font-weight: 700; font-size: 13px; display: grid; place-items: center; }
+
+  footer.site { border-top: 1px solid var(--line); padding: 32px 24px; text-align: center; color: var(--ink-soft); font-size: 13px; }
+  footer.site a { margin: 0 10px; }
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="nav-inner">
+    <a class="brand" href="index.html"><span class="logo">🔥</span> Stoke</a>
+    <a class="back" href="index.html">← Back to home</a>
+  </div>
+</header>
+
+<main>
+  <div class="doc-head">
+    <span class="kicker">Help &amp; Support</span>
+    <h1>Stoke Support</h1>
+    <p class="meta">We're here to help you keep your streak alive. · Last updated: <strong>June 25, 2026</strong></p>
+  </div>
+
+  <section id="contact">
+    <h2 class="sec"><span class="n">·</span> Get in touch</h2>
+    <p>The fastest way to reach us is by email. We typically reply within <strong>1–2 business days</strong>. Please include your device model, iOS version, and a short description (and a screenshot if relevant) so we can help quickly.</p>
+    <div class="cards">
+      <div class="card">
+        <div class="ico">✉️</div>
+        <h3>Email support</h3>
+        <p>Questions, bugs, or anything else.</p>
+        <a class="cta" href="mailto:victor@xboostapp.io?subject=Stoke%20Support">victor@xboostapp.io →</a>
+      </div>
+      <div class="card">
+        <div class="ico">💡</div>
+        <h3>Feature requests</h3>
+        <p>Tell us what would make Stoke better.</p>
+        <a class="cta" href="mailto:victor@xboostapp.io?subject=Stoke%20Feature%20Request">Send an idea →</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="faq">
+    <h2 class="sec"><span class="n">·</span> Frequently asked questions</h2>
+
+    <details class="faq" open>
+      <summary>How do I add a habit?</summary>
+      <div class="ans">
+        <p>On the <strong>Today</strong> tab, tap the <strong>+</strong> button. Give your habit a name and emoji, pick a schedule, set an optional reminder, then save. You can also start from one of 30+ built-in templates during onboarding.</p>
+      </div>
+    </details>
+
+    <details class="faq">
+      <summary>What schedules can I set?</summary>
+      <div class="ans">
+        <ul>
+          <li><strong>Daily</strong> — every day.</li>
+          <li><strong>Specific weekdays</strong> — e.g. Mon/Wed/Fri only.</li>
+          <li><strong>X times per week</strong> — hit a weekly target on any days.</li>
+          <li><strong>Every N days</strong> — e.g. every 3 days.</li>
+        </ul>
+      </div>
+    </details>
+
+    <details class="faq">
+      <summary>How do streaks work?</summary>
+      <div class="ans">
+        <p>Your streak counts consecutive <em>scheduled</em> days you complete a habit.</p>
+        <ul>
+          <li>Today stays "open" — you have until the end of the day to keep the streak.</li>
+          <li>For weekday habits, off days are rest days and never break your streak.</li>
+          <li>For "X times per week" habits, a week counts once you reach the target; the current week in progress won't break it.</li>
+        </ul>
+      </div>
+    </details>
+
+    <details class="faq">
+      <summary>What are flame levels and milestones?</summary>
+      <div class="ans">
+        <p>Each habit grows through seven flame tiers based on your total completions — <strong>Spark → Kindling → Ember → Flame → Blaze → Wildfire → Eternal Flame</strong>. You'll also get a celebration at milestone streaks of <strong>7, 30, 100, and 365 days</strong>.</p>
+      </div>
+    </details>
+
+    <details class="faq">
+      <summary>My reminders aren't showing up.</summary>
+      <div class="ans">
+        <p>Reminders are local notifications. If they're not appearing:</p>
+        <ol class="steps">
+          <li>Open the iOS <strong>Settings</strong> app → <strong>Notifications</strong> → <strong>Stoke</strong>, and make sure Allow Notifications is on.</li>
+          <li>Check that the habit has a reminder time set (edit the habit → Reminder).</li>
+          <li>Make sure Focus / Do Not Disturb isn't silencing them.</li>
+        </ol>
+      </div>
+    </details>
+
+    <details class="faq">
+      <summary>What's free, and what's in Premium?</summary>
+      <div class="ans">
+        <p><strong>Free</strong> includes up to 3 active habits, streak tracking, the basic stats overview, and a small Home Screen widget.</p>
+        <p><strong>Stoke Premium</strong> unlocks <strong>unlimited habits</strong>, advanced stats (trends, activity by time of day, top-habits ranking), all widgets including Lock Screen, and more. Premium is available as a monthly, annual, or one-time lifetime purchase.</p>
+      </div>
+    </details>
+
+    <details class="faq">
+      <summary>How do I manage or cancel my subscription?</summary>
+      <div class="ans">
+        <p>Subscriptions are billed through your Apple ID and managed by Apple:</p>
+        <ol class="steps">
+          <li>Open the iOS <strong>Settings</strong> app and tap your name at the top.</li>
+          <li>Tap <strong>Subscriptions</strong>.</li>
+          <li>Select <strong>Stoke</strong> to change or cancel your plan.</li>
+        </ol>
+        <p>Cancelling stops future renewals; you keep Premium until the current period ends.</p>
+      </div>
+    </details>
+
+    <details class="faq">
+      <summary>I paid but Premium isn't active / I switched devices.</summary>
+      <div class="ans">
+        <p>Open Stoke → <strong>Settings</strong> → <strong>Restore Purchases</strong>. Make sure you're signed in with the same Apple ID used for the original purchase.</p>
+      </div>
+    </details>
+
+    <details class="faq">
+      <summary>How do refunds work?</summary>
+      <div class="ans">
+        <p>All purchases are processed by Apple, so refunds are handled by Apple. Request one at <a href="https://reportaproblem.apple.com" target="_blank" rel="noopener">reportaproblem.apple.com</a>. If something went wrong, email us first and we'll do our best to help.</p>
+      </div>
+    </details>
+
+    <details class="faq">
+      <summary>Does Stoke work on Apple Watch and with widgets?</summary>
+      <div class="ans">
+        <p>Yes. There's a dedicated Apple Watch app — tap a habit's ring to complete it right from your wrist, plus circular, rectangular, and inline complications. On iPhone you get Home Screen and Lock Screen widgets to check in at a glance.</p>
+      </div>
+    </details>
+
+    <details class="faq">
+      <summary>How do I lock the app or delete my data?</summary>
+      <div class="ans">
+        <ul>
+          <li><strong>Lock:</strong> Settings → Privacy → enable Face ID / Touch ID / passcode lock.</li>
+          <li><strong>Delete everything:</strong> Settings → Data → <strong>Delete All Data</strong>, or simply delete the app from your device.</li>
+        </ul>
+        <p>Your habits and notes are stored on your device — see our <a href="privacy.html">Privacy Policy</a> for details.</p>
+      </div>
+    </details>
+
+    <details class="faq">
+      <summary>Will I lose my data if I delete the app?</summary>
+      <div class="ans">
+        <p>Yes — habit data is stored locally on your device, so deleting the app removes it. Keep the app installed to keep your history.</p>
+      </div>
+    </details>
+  </section>
+
+  <section id="troubleshoot">
+    <h2 class="sec"><span class="n">·</span> Quick troubleshooting</h2>
+    <ul class="body">
+      <li><strong>App feels stuck or slow:</strong> fully close Stoke (swipe it away in the app switcher) and reopen it.</li>
+      <li><strong>Streak looks wrong after travel:</strong> Stoke uses your device's current time zone — completions are kept by calendar day, so a time-zone change won't retroactively break a streak.</li>
+      <li><strong>Still stuck:</strong> update to the latest version from the App Store, then email us with your iOS version and device model.</li>
+    </ul>
+  </section>
+
+  <section id="more">
+    <h2 class="sec"><span class="n">·</span> Still need help?</h2>
+    <div class="callout">
+      <p>Email <a href="mailto:victor@xboostapp.io?subject=Stoke%20Support">victor@xboostapp.io</a> and we'll get back to you within 1–2 business days. Include your device model, iOS version, and what you were doing when the issue happened.</p>
+    </div>
+  </section>
+</main>
+
+<footer class="site">
+  <div>
+    <a href="index.html">Home</a>·<a href="support.html">Support</a>·<a href="privacy.html">Privacy Policy</a>·<a href="terms.html">Terms of Service</a>
+    <p style="margin-top:12px">© 2026 Xboost. All rights reserved.</p>
+  </div>
+</footer>
+
+</body>
+</html>
